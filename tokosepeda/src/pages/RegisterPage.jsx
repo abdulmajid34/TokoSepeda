@@ -1,37 +1,41 @@
 import React, { useRef } from 'react'
 import {
-    Form, Button, Card
+    Form,
+    Card,
+    Button
 } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
-function LoginPage() {
+function RegisterPage() {
+    const emailRef = useRef()
+    const passwordRef = useRef()
     return (
         <>
-          <Card>
+            <Card>
                 <Card.Body>
-                    <h2 className="text-center mb-4">Login</h2>
+                    <h2 className="text-center mb-4">Register</h2>
                     <Form>
                         <Form.Group id="email">
                             <Form.Label>Email:</Form.Label>
                             <Form.Control
-                                type="email" ref="" required />
+                                type="email" ref={emailRef} required />
                         </Form.Group>
                         <Form.Group id="password">
                             <Form.Label>Password:</Form.Label>
-                            <Form.Control type="password" ref="" required />
+                            <Form.Control type="password" ref={passwordRef} required />
                         </Form.Group>
                         <Button className="w-100" type="submit">Submit</Button>
                     </Form>
                 </Card.Body>
             </Card>
-          <div className="w-100 text-center mt-2">
-            belum memiliki account?
-            <Link to="/register"> 
-                <span>Register</span>
-            </Link>
-          </div>
+            <div className="w-100 text-center mt-2">
+                sudah memiliki account?
+                <Link to="/login">
+                    <span>Login</span>
+                </Link>
+            </div>
         </>
     )
 }
 
-export default LoginPage
+export default RegisterPage
